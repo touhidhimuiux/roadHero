@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/main_navigator.dart';
+import 'screens/login_screen.dart';
 
 void main() {
   runApp(const RoadHeroApp());
@@ -22,9 +22,8 @@ class RoadHeroApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Roboto',
       ),
-      // Temporarily bypasses Login so you can test your dashboard and maps.
-      // Once your teammate pushes the login screen, change this to: home: const LoginScreen()
-      home: const MainNavigator(),
+
+      home: const LoginScreen(),
     );
   }
 }

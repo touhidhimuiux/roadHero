@@ -9,10 +9,13 @@ class ValidationScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: const Text("Validation Screen", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        title: const Text(
+          "Validation Screen",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
-        backgroundColor: const Color(0xFF1E60D1), // Matched to your app theme
-        iconTheme: const IconThemeData(color: Colors.white), // Makes the back arrow white
+        backgroundColor: const Color(0xFF1E60D1),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -44,17 +47,16 @@ class ValidationScreen extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.shade300,
-                      blurRadius: 5,
-                    )
+                    BoxShadow(color: Colors.grey.shade300, blurRadius: 5),
                   ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ClipRRect(
-                      borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
+                      borderRadius: const BorderRadius.vertical(
+                        top: Radius.circular(15),
+                      ),
                       child: Image.network(
                         "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?q=80&w=1000&auto=format&fit=crop", // Replaced with a real pothole image
                         height: 150,
@@ -66,7 +68,10 @@ class ValidationScreen extends StatelessWidget {
                       padding: EdgeInsets.all(12),
                       child: Text(
                         "Pothole near school, very dangerous for vehicles.",
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                     const Padding(
@@ -91,32 +96,48 @@ class ValidationScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
                       foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 30,
+                        vertical: 12,
+                      ),
                     ),
                     onPressed: () {
                       Navigator.pop(context); // Goes back if still broken
                     },
-                    child: const Text("Still Broken", style: TextStyle(fontWeight: FontWeight.bold)),
+                    child: const Text(
+                      "Still Broken",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
                       foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 30,
+                        vertical: 12,
+                      ),
                     ),
                     onPressed: () {
                       // Navigates to the Resolved Screen
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const ResolvedScreen()));
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ResolvedScreen(),
+                        ),
+                      );
                     },
-                    child: const Text("Fixed", style: TextStyle(fontWeight: FontWeight.bold)),
+                    child: const Text(
+                      "Fixed",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),
       ),
-      // REMOVED: Teammate's BottomNavigationBar so the app routes cleanly
     );
   }
 }
@@ -132,10 +153,7 @@ class BadgeWidget extends StatelessWidget {
       children: [
         const Icon(Icons.star, color: Colors.yellow, size: 30),
         const SizedBox(height: 5),
-        Text(
-          title,
-          style: const TextStyle(color: Colors.white),
-        ),
+        Text(title, style: const TextStyle(color: Colors.white)),
       ],
     );
   }

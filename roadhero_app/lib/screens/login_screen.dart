@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/custom_widgets.dart';
 import 'signup_screen.dart';
+import 'main_navigator.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -20,15 +21,15 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 60),
-              const Icon(Icons.location_on,
-                  size: 70, color: Colors.orange),
+              const Icon(Icons.location_on, size: 70, color: Colors.orange),
               const SizedBox(height: 10),
               const Text(
                 "Road Hero",
                 style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
               const SizedBox(height: 40),
 
@@ -37,40 +38,51 @@ class LoginScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(25),
                   decoration: const BoxDecoration(
                     color: Colors.white,
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(40)),
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(40),
+                    ),
                   ),
                   child: Column(
                     children: [
                       buildTextField("Email", Icons.email),
                       const SizedBox(height: 20),
-                      buildTextField("Password", Icons.lock,
-                          isPassword: true),
+                      buildTextField("Password", Icons.lock, isPassword: true),
                       const SizedBox(height: 25),
 
-                      buildPrimaryButton("Login"),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const MainNavigator(),
+                            ),
+                          );
+                        },
+                        child: buildPrimaryButton("Login"),
+                      ),
 
                       const SizedBox(height: 20),
 
                       buildSocialButton(
-                          "Sign in with Google",
-                          Colors.white,
-                          Colors.black,
-                          Icons.g_mobiledata),
+                        "Sign in with Google",
+                        Colors.white,
+                        Colors.black,
+                        Icons.g_mobiledata,
+                      ),
 
                       const SizedBox(height: 15),
 
                       buildSocialButton(
-                          "Sign in with Apple",
-                          Colors.black,
-                          Colors.white,
-                          Icons.apple),
+                        "Sign in with Apple",
+                        Colors.black,
+                        Colors.white,
+                        Icons.apple,
+                      ),
 
                       const SizedBox(height: 20),
 
                       Row(
-                        mainAxisAlignment:
-                            MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Text("No account? "),
                           GestureDetector(
@@ -78,24 +90,24 @@ class LoginScreen extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (_) =>
-                                        const SignupScreen()),
+                                  builder: (_) => const SignupScreen(),
+                                ),
                               );
                             },
                             child: const Text(
                               "Register",
                               style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight:
-                                      FontWeight.bold),
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          )
+                          ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

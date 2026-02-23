@@ -10,10 +10,7 @@ class ResolvedScreen extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color(0xFF1E60D1), // Matched to your app theme
-              Color(0xFF357ABD),
-            ],
+            colors: [Color(0xFF1E60D1), Color(0xFF357ABD)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -26,7 +23,11 @@ class ResolvedScreen extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(25),
               boxShadow: const [
-                BoxShadow(color: Colors.black26, blurRadius: 20, offset: Offset(0, 10)),
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 20,
+                  offset: Offset(0, 10),
+                ),
               ],
             ),
             child: Column(
@@ -36,9 +37,21 @@ class ResolvedScreen extends StatelessWidget {
                 const Stack(
                   alignment: Alignment.center,
                   children: [
-                    Positioned(top: -10, left: 20, child: Icon(Icons.star, color: Colors.amber, size: 18)),
-                    Positioned(top: 10, right: 25, child: Icon(Icons.star, color: Colors.orange, size: 14)),
-                    Positioned(bottom: -5, left: 40, child: Icon(Icons.star, color: Colors.yellow, size: 16)),
+                    Positioned(
+                      top: -10,
+                      left: 20,
+                      child: Icon(Icons.star, color: Colors.amber, size: 18),
+                    ),
+                    Positioned(
+                      top: 10,
+                      right: 25,
+                      child: Icon(Icons.star, color: Colors.orange, size: 14),
+                    ),
+                    Positioned(
+                      bottom: -5,
+                      left: 40,
+                      child: Icon(Icons.star, color: Colors.yellow, size: 16),
+                    ),
                     Icon(Icons.check_circle, color: Colors.green, size: 95),
                   ],
                 ),
@@ -54,7 +67,7 @@ class ResolvedScreen extends StatelessWidget {
                   style: TextStyle(color: Colors.grey),
                 ),
                 const SizedBox(height: 30),
-                
+
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -62,21 +75,28 @@ class ResolvedScreen extends StatelessWidget {
                       backgroundColor: const Color(0xFF1E60D1),
                       foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(vertical: 14),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
                     onPressed: () {
                       // This magically pops all screens and takes you straight back to the Home Dashboard!
                       Navigator.of(context).popUntil((route) => route.isFirst);
                     },
-                    child: const Text("Great!", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                    child: const Text(
+                      "Great!",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
-                )
+                ),
               ],
             ),
           ),
         ),
       ),
-      // REMOVED: Teammate's BottomNavigationBar 
     );
   }
 }
